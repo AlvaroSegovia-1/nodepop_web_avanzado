@@ -19,30 +19,16 @@ require('./models/Anuncio');
 require('./models/Usuario');
 
 const app = express();
- // app.use(cors());
-
-//añadido para CORS 
-//app.use((req, res, next) => {
-//	res.header('Access-Control-Allow-Origin', '*');
-//	res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, 	X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-	Method');
-//	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, 	DELETE');
-//	res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-//	next();
-//});
-
-// añadido para CORS - 2º intento
-server.app.use( cors({ origin: true, credentials: true }) );
 app.use(cors());
 
-//const bodyParser = require('body-parser'); 
-app.use((req: Request, res: Response, next: NextFunction) => {
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-COntrol-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
+//añadido para CORS 
+app.use((req, res, next) => {
+  	res.header('Access-Control-Allow-Origin', '*');
+  	res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, 	X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+   res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+  	res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+  	next();
 });
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
