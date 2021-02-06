@@ -31,7 +31,7 @@ const app = express();
 //});
 
 // añadido para CORS - 2º intento
-server.app.use( cors({ origin: true, credentials: true  }) );
+server.app.use( cors({ origin: true, credentials: true }) );
 app.use(cors());
 
 //const bodyParser = require('body-parser'); 
@@ -41,7 +41,7 @@ app.use((req: Request, res: Response, next: NextFunction) => {
     res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
     res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
     next();
-})
+});
 
 
 // view engine setup
